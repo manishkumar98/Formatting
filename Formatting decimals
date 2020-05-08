@@ -1,0 +1,222 @@
+
+
+
+Given an array of integers, calculate the fractions of its elements that are positive, negative, and are zeros. Print the decimal value of each fraction on a new line.
+
+Note: This challenge introduces precision problems. The test cases are scaled to six decimal places, though answers with absolute error of up to  are acceptable.
+
+For example, given the array  there are  elements, two positive, two negative and one zero. Their ratios would be ,  and . It should be printed as
+
+0.400000
+0.400000
+0.200000
+Function Description
+
+Complete the plusMinus function in the editor below. It should print out the ratio of positive, negative and zero items in the array, each on a separate line rounded to six decimals.
+
+plusMinus has the following parameter(s):
+
+arr: an array of integers
+Input Format
+
+The first line contains an integer, , denoting the size of the array.
+The second line contains  space-separated integers describing an array of numbers .
+
+Constraints
+
+
+
+Output Format
+
+You must print the following  lines:
+
+A decimal representing of the fraction of positive numbers in the array compared to its size.
+A decimal representing of the fraction of negative numbers in the array compared to its size.
+A decimal representing of the fraction of zeros in the array compared to its size.
+Sample Input
+
+6
+-4 3 -9 0 4 1         
+Sample Output
+
+0.500000
+0.333333
+0.166667
+
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the plusMinus function below.
+    static void plusMinus(int[] arr)throws NumberFormatException {
+        double p=0,n=0,z=0;
+       for(int i=0;i<arr.length;i++){
+           if(arr[i]<0)
+            n++;
+            else if(arr[i]>0)
+            p++;
+            else
+            z++;
+       } 
+       double len=arr.length;
+        double p1=(double)(p/len);
+        double n1=(double)(n/len);
+        double z1=(double)(z/len);
+          DecimalFormat df = new DecimalFormat("#.######");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        System.out.println(df.format(p1));
+            System.out.println(df.format(n1));
+
+    System.out.println(df.format(z1));
+
+
+       // System.out.format("%0.6f",p1);
+        //System.out.format("%0.6f",n1);
+        //System.out.format("%0.6f",z1);
+        //System.out.println(p1);
+         //System.out.println(n1);
+          //System.out.println(z1);
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] arr = new int[n];
+
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
+
+        plusMinus(arr);
+
+        scanner.close();
+    }
+}
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the plusMinus function below.
+    static void plusMinus(int[] arr)throws NumberFormatException {
+        double p=0,n=0,z=0;
+       for(int i=0;i<arr.length;i++){
+           if(arr[i]<0)
+            n++;
+            else if(arr[i]>0)
+            p++;
+            else
+            z++;
+       } 
+       double len=arr.length;
+        double p1=(double)(p/len);
+        double n1=(double)(n/len);
+        double z1=(double)(z/len);
+          DecimalFormat df = new DecimalFormat("#.######");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        System.out.println(df.format(p1));
+            System.out.println(df.format(n1));
+
+    System.out.println(df.format(z1));
+
+
+       // System.out.format("%0.6f",p1);
+        //System.out.format("%0.6f",n1);
+        //System.out.format("%0.6f",z1);
+        //System.out.println(p1);
+         //System.out.println(n1);
+          //System.out.println(z1);
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] arr = new int[n];
+
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
+
+        plusMinus(arr);
+
+        scanner.close();
+    }
+}
+
+
+
+
+
+
+
+public class Decimal {
+
+    public static void main(String[] args) {
+        double num = 1.34567;
+
+        System.out.format("%.4f", num);
+    }
+}
+When you run the program, the output will be:
+
+1.3457
+In the above program, we've used format() method to print the given floating point number num to 4 decimal places.  The 4 decimal places is given by the format .4f.
+
+This means, print only upto 4 places after the dot (decimal places), and f means to print the floating point number.
+
+
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
+public class Decimal {
+
+    public static void main(String[] args) {
+        double num = 1.34567;
+        DecimalFormat df = new DecimalFormat("#.###");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        System.out.println(df.format(num));
+    }
+}
+
+When you run the program, the output will be:
+
+1.346
+
+In the above program, we've used DecimalFormat class to round a given number num.
+
+We declare the format using the # patterns #.###. This means, we want num upto 3 decimal places. We also set the rounding mode to Ceiling, this causes the last given place to be rounded to its next number.
+
+So, 1.34567 rounded to 3 decimal places prints 1.346, 6 is the next number for 3rd place decimal 5.
